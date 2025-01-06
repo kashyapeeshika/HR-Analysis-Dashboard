@@ -1,7 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom"; 
 // Internal import 
-import Style from "../style/Style.css";
+// import Style from "../style/Style.css";
+import "./graphs.css";
 
 
 const TotalEmployees = () => {

@@ -1,7 +1,8 @@
+/* For the screens  */
 .card {
   flex: 1; 
   /* Adjust these two max and min width again */
-  min-width: 480px; 
+  min-width: 460px; 
   max-width: 800px; 
   padding: 2px;
   margin: 2px; 

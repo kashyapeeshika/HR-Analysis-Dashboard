@@ -4,15 +4,15 @@ import PropTypes from "prop-types";
 import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
 import Drawer from "@mui/material/Drawer";
-import IconButton from "@mui/material/IconButton";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import Toolbar from "@mui/material/Toolbar";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
+import HomeIcon from "@mui/icons-material/Home";
+import InfoIcon from "@mui/icons-material/Info";
+import ContactsIcon from "@mui/icons-material/Contacts";
 
 const drawerWidth = 310;
 
@@ -20,17 +20,17 @@ function ResponsiveDrawer(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
-  // For navigation
   const navigate = useNavigate();
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
 
+  // Menu items with icons
   const menuItems = [
-    { text: "Dashboard", path: "/" },
-    { text: "About", path: "/screens/About" },
-    { text: "Contacts", path: "/screens/Contacts" },
+    { text: "Dashboard", path: "/", icon: <HomeIcon /> },
+    { text: "About", path: "/screens/About", icon: <InfoIcon /> },
+    { text: "Contacts", path: "/screens/Contacts", icon: <ContactsIcon /> },
   ];
 
   const drawer = (
@@ -42,23 +42,13 @@ function ResponsiveDrawer(props) {
           height: "100px",
         }}
       >
-        <img
-          src="/assets/logo.jpg"
-          alt="Logo"
-          style={{
-            height: "100%",
-            width: "100%",
-            objectFit: "cover",
-          }}
-        />
+        {/* Add your logo or branding here if needed */}
       </Toolbar>
       <List>
-        {menuItems.map((item, index) => (
-          <ListItem key={item.text} disablePadding>
+        {menuItems.map((item) => (
+          <ListItem key={item.text}>
             <ListItemButton onClick={() => navigate(item.path)}>
-              <ListItemIcon>
-                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-              </ListItemIcon>
+              <ListItemIcon>{item.icon}</ListItemIcon>
               <ListItemText primary={item.text} />
             </ListItemButton>
           </ListItem>

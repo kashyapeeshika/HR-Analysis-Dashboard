@@ -1,6 +1,6 @@
 import React from 'react';
 import { AppBar, Toolbar, Typography } from '@mui/material'; 
-import FavoriteIcon from '@mui/icons-material/Favorite';
+
 const Footer = () => {
   return (
     <AppBar
@@ -24,14 +24,7 @@ const Footer = () => {
       flexGrow: 1 
     }}
   >
-    © {new Date().getFullYear()}, Made with{' '}
-    <FavoriteIcon
-      sx={{ 
-        mx: 0.5, 
-        color: 'red', 
-      }} 
-    />
-    by Covert Works
+    © {new Date().getFullYear()}, Made by Covert Works
   </Typography>
 </Toolbar>
 </AppBar>

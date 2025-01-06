@@ -13,6 +13,8 @@ import TotalEmployees from "../Graphs/TotalEmployees";
 import NewHires from "../Graphs/NewHires";
 import AverageTenure from '../Graphs/AverageTenure';
 import AgeGroupDistribution from '../Graphs/AgeGroupDistribution';
+import About from './About';
+import Contacts from './Contacts';
 
 // Styled Item for Cards
 const Item = styled(Paper)(({ theme }) => ({
@@ -29,17 +31,18 @@ const Item = styled(Paper)(({ theme }) => ({
 // Custom styles for card container
 const cardContainerStyles = {
   display: 'flex',
-  flexWrap: 'wrap', // Allow wrapping of cards
-  gap: '16px', // Space between cards
-  justifyContent: 'space-between', // Even spacing
+  flexWrap: 'wrap', 
+  gap: '10px', 
+  justifyContent: 'space-between', 
   '@media (max-width: 768px)': {
-    flexDirection: 'column', // Stack vertically on smaller screens
+    flexDirection: 'column', 
     alignItems: 'center',
   },
 };
 
 const Home = () => {
   return (
+
     <Box
       sx={{
         display: 'flex',
@@ -69,7 +72,7 @@ const Home = () => {
           {/* First row */}
           <Stack 
             direction={{ xs: 'column', sm: 'row-reverse' }}
-            spacing={{ xs: 1, sm: 2, md: 4 }}
+            spacing={{ xs: 1, sm: 2, md: 3 }}
             >
               <Item>
                 <Notifications/>
@@ -80,27 +83,30 @@ const Home = () => {
             </Stack>
 
           {/* Second Row of Cards */}
-          <Box sx={{ ...cardContainerStyles, marginTop: '24px' }}>
-            <Item>
-              <TotalEmployees />
-            </Item>
-            <Item>
-              <NewHires />
-            </Item>
-            <Item>
-              <AverageTenure />
-            </Item>
-          </Box>
-
-          {/* Second Row of Cards or Graphs */}
-          <Box sx={{ ...cardContainerStyles, marginTop: '24px' }}>
+          <Stack
+            direction={{ xs: 'column', sm: 'row' }}
+            spacing={{ xs: 1, sm: 2, md: 3 }}
+          >
             <Item>
               <AgeGroupDistribution/>
             </Item>
-            <Item>New hires graph</Item>
-          </Box>
-
-          {/* Third row of graphs */}
+            <Item>
+              dfjvhiuhdr
+            </Item>
+            <Item>  
+            <Stack>
+              <Item>
+                <TotalEmployees />
+              </Item>
+              <Item>
+                <NewHires />
+              </Item>
+              <Item>
+                <AverageTenure />
+              </Item>
+            </Stack>
+            </Item>
+          </Stack>
         </Box>
       </Box>
 

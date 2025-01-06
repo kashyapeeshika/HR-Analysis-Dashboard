@@ -34,6 +34,7 @@ const Greetings = () => {
         color: '#508CA4',
         width: '100%', 
         maxWidth: '1250px', 
+        minWidth: '1150px',
         margin: '0 auto', 
         marginBottom: '1rem', 
       }}

@@ -55,13 +55,13 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 export default function SearchAppBar() {
   return (
-    <Box sx={{ flexGrow: 0 }}>https://github.com/YorForger15/dashboard
+    <Box sx={{ flexGrow: 0 }}>
       <AppBar position="static">
         <Toolbar 
         sx={{ 
           justifyContent: "flex-end", 
           width: '100%', 
-          height: '100px',
+          height: '70px',
           background: '#ffffff',
           color: '#707070',
           gap:2,

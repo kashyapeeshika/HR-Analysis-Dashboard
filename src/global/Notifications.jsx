@@ -27,12 +27,15 @@ const Notifications = () => {
       style={{ 
         padding: '20px', 
         maxWidth: '400px', 
-        border: '1px solid #ddd', 
+        // border: '1px solid #ddd', 
         borderRadius: '8px', 
-        boxShadow: '0 4px 6px rgba(0,0,0,0.1)' 
+        // boxShadow: '0 4px 6px rgba(0,0,0,0.1)' 
       }}
     >
-      <h3 style={{ color: '#508CA4', textAlign: 'center', marginBottom: '20px' }}>
+      <h3 style={{ 
+        color: '#508CA4', 
+        textAlign: 'center', 
+        marginBottom: '20px' }}>
         Notifications
       </h3>
 
