@@ -15,27 +15,7 @@ import AverageTenure from '../Graphs/AverageTenure';
 
 //Graphs
 import AttritionRateByDepartment from '../Graphs/AttritionRateByDepartment';
-import AttritionByGender from '../Graphs/AttritionByGender';
-import AgeGroupDistribution from '../Graphs/AgeGroupDistribution';
-import AverageSalaryByDepartment from "../Graphs/AverageSalaryByDepartment";
-import AverageWorkingYearsByEducationField from "../Graphs/AverageWorkingYearsByEducationField";
-import BusinessTravelAnalysis from "../Graphs/BusinessTravelAnalysis";
-import DistanceFromHomeVsAttrition from "../Graphs/DistanceFromHomeVsAttrition";
-import EducationLevelVsAverageYearsAtCompany from "../Graphs/EducationLevelVsAverageYearsAtCompany";
-import GenderRatio from "../Graphs/GenderRatio";
-import OpenPosition from "../Graphs/OpenPosition";
-import SatisfactionLevelsComparison from "../Graphs/SatisfactionLevelsComparison";
-import TrainingHours from "../Graphs/TrainingHours";
-import WorkLifeVsAttrition from "../Graphs/WorkLifeBalanceVsAttrition";
-
-//
-import About from "./About";
-import Contacts from "./Contacts"
-
-
-
-
-
+import AverageSalaryByDepartment from '../Graphs/AverageSalaryByDepartment';
 
 // Styled Item for Cards
 const Item = styled(Paper)(({ theme }) => ({
@@ -63,96 +43,79 @@ const cardContainerStyles = {
 
 const Home = () => {
   return (
-    <>
-      <AgeGroupDistribution/>
-      <AttritionByGender/>
-      <AttritionRateByDepartment/>
-      <AverageSalaryByDepartment/>
-      <AverageWorkingYearsByEducationField/>
-      <BusinessTravelAnalysis/>
-      <DistanceFromHomeVsAttrition/>
-      <EducationLevelVsAverageYearsAtCompany/>
-      <GenderRatio/>
-      <OpenPosition/>
-      <SatisfactionLevelsComparison/>
-      <TrainingHours/>
-      <WorkLifeVsAttrition/>
-    </>
-    
-    
 
-    // <Box
-    //   sx={{
-    //     display: 'flex',
-    //     flexDirection: 'column',
-    //     minHeight: '100vh',
-    //   }}
-    // >
-    //   {/* Navbar */}
-    //   <Navbar />
+    <Box
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        minHeight: '100vh',
+      }}
+    >
+      {/* Navbar */}
+      <Navbar />
 
-    //   {/* Main Content Area */}
-    //   <Box
-    //     sx={{
-    //       display: 'flex',
-    //       flexGrow: 1,
-    //     }}
-    //   >
-    //     <Sidebar />
-    //     <Box
-    //       component="main"
-    //       sx={{
-    //         flexGrow: 1,
-    //         p: 3,
-    //       }}
-    //     >
+      {/* Main Content Area */}
+      <Box
+        sx={{
+          display: 'flex',
+          flexGrow: 1,
+        }}
+      >
+        <Sidebar />
+        <Box
+          component="main"
+          sx={{
+            flexGrow: 1,
+            p: 3,
+          }}
+        >
 
-    //       {/* First row */}
-    //       <Stack 
-    //         direction={{ xs: 'column', sm: 'row' }}
-    //         spacing={{ xs: 1, sm: 2, md: 3 }}
-    //         cardContainerStyles
-    //         >
-    //           <Item >
-    //             <Greetings/>
-    //           </Item>
-    //           <Item>
-    //             <Notifications/>
-    //           </Item>
-    //         </Stack>
+          {/* First row */}
+          <Stack 
+            direction={{ xs: 'column', sm: 'row' }}
+            spacing={{ xs: 1, sm: 2, md: 3 }}
+            cardContainerStyles
+            >
+              <Item >
+                <Greetings/>
+              </Item>
+              <Item>
+                <Notifications/>
+              </Item>
+            </Stack>
 
-    //       {/* Second Row of Cards */}
-    //       <Stack
-    //         direction={{ xs: 'column', sm: 'row' }}
-    //         spacing={{ xs: 1, sm: 2, md: 3 }}
-    //         cardContainerStyles
-    //       >
-    //         <Item>
-    //           <AttritionRateByDepartment/>
-    //         </Item>
-    //         <Item>
-    //           dfjvhiuhdr
-    //         </Item>
-    //         <Item>  
-    //         <Stack>
-    //           <Item>
-    //             <TotalEmployees />
-    //           </Item>
-    //           <Item>
-    //             <NewHires />
-    //           </Item>
-    //           <Item>
-    //             <AverageTenure />
-    //           </Item>
-    //         </Stack>
-    //         </Item>
-    //       </Stack>
-    //     </Box>
-    //   </Box>
+          {/* Second Row of Cards */}
+          <Stack
+            direction={{ xs: 'column', sm: 'row' }}
+            spacing={{ xs: 1, sm: 2, md: 3 }}
+            cardContainerStyles
+          >
+            <Item>
+              <AttritionRateByDepartment/>
+            </Item>
+            <Item>
+              <AverageSalaryByDepartment/>
+            </Item>
+            <Item>  
+            <Stack>
+              <Item>
+                <TotalEmployees />
+              </Item>
+              <Item>
+                <NewHires />
+              </Item>
+              <Item>
+                <AverageTenure />
+              </Item>
+            </Stack>
+            </Item>
+          </Stack>
+        </Box>
+      </Box>
 
-    //   {/* Footer */}
-    //   <Footer />
-    // </Box>
+      {/* Footer */}
+      <Footer />
+    </Box>
   );
 };
 
