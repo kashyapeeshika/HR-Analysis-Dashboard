@@ -1,17 +1,39 @@
 import React from 'react';
 import { Bar } from 'react-chartjs-2';
-import {
-  Chart as ChartJS,
-  CategoryScale,
-  LinearScale,
-  BarElement,
-  Title,
-  Tooltip,
-  Legend,
-} from 'chart.js';
+import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from 'chart.js';
+import { Card, CardHeader, CardContent, CardActions, Typography } from '@mui/material';
+import { styled } from '@mui/system';
 
-// Registering the Chart.js components needed
+// Register Chart.js components
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
+
+// Styled components
+const StyledCard = styled(Card)({
+  maxWidth: '700px',
+  margin: '20px auto',
+  borderRadius: '12px',
+  boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)',
+});
+
+const StyledCardHeader = styled(CardHeader)({
+  backgroundColor: '#f5f5f5',
+  color: '#000',
+  textAlign: 'center',
+  padding: '16px',
+});
+
+const StyledCardFooter = styled(CardActions)({
+  textAlign: 'center',
+  padding: '8px',
+  backgroundColor: '#f9f9f9',
+  fontSize: '0.85rem',
+  color: '#666',
+});
+
+const ChartContainer = styled('div')({
+  position: 'relative',
+  height: '320px',
+});
 
 const AttritionRateByDepartment = () => {
   const labels = ['Research & Development', 'Sales', 'Human Resources'];
@@ -45,10 +67,11 @@ const AttritionRateByDepartment = () => {
 
   const options = {
     responsive: true,
+    maintainAspectRatio: false,
     scales: {
       x: {
         grid: {
-          display: false, // Hides grid lines on the x-axis
+          display: false,
         },
         title: {
           display: true,
@@ -76,13 +99,16 @@ const AttritionRateByDepartment = () => {
     plugins: {
       legend: {
         position: 'top',
+        align: 'end',
+        labels: {
+          boxWidth: 20,
+          boxHeight: 20,
+          padding: 10,
+          usePointStyle: true,
+        },
       },
       title: {
-        display: true,
-        text: 'Attrition Rate By Department',
-        font: {
-          size: 18,
-        },
+        display: false,
       },
     },
     barPercentage: 0.8,
@@ -90,24 +116,22 @@ const AttritionRateByDepartment = () => {
   };
 
   return (
-    <div className="card shadow-sm col-lg-6 col-md-8 mx-auto">
+    <StyledCard>
       {/* Card Header */}
-      <div className="card-header bg-primary text-white text-center">
-        <h5 className="card-title mb-0">Attrition Rate By Department</h5>
-      </div>
+      <StyledCardHeader
+        title={<Typography variant="h6">Attrition Rate By Department</Typography>}
+      />
 
-      {/* Card Body containing the Graph */}
-      <div className="card-body">
-        <div style={{ position: 'relative', height: '400px', width: '100%' }}>
+      {/* Card Content */}
+      <CardContent>
+        <ChartContainer>
           <Bar data={data} options={options} />
-        </div>
-      </div>
+        </ChartContainer>
+      </CardContent>
 
       {/* Card Footer */}
-      <div className="card-footer text-muted text-center">
-        Last updated 3 days ago
-      </div>
-    </div>
+      <StyledCardFooter>Last updated 3 days ago</StyledCardFooter>
+    </StyledCard>
   );
 };
 

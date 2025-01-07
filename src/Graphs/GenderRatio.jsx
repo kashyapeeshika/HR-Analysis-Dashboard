@@ -1,9 +1,39 @@
-import React from 'react'
-import { Doughnut, Pie } from 'react-chartjs-2';
+import React from 'react';
+import { Pie } from 'react-chartjs-2';
+import { Doughnut } from 'react-chartjs-2';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
-// Register the chart.js components
+import { Card, CardHeader, CardContent, CardActions, Typography } from '@mui/material';
+import { styled } from '@mui/system';
+
+// Registering necessary components for ChartJS
 ChartJS.register(ArcElement, Tooltip, Legend);
 
+// Styled components
+const StyledCard = styled(Card)({
+  maxWidth: 400,
+  margin: 'auto',
+  // boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)',
+  borderRadius: '8px',
+});
+
+const StyledCardHeader = styled(CardHeader)({
+  backgroundColor: '#f5f5f5',
+  padding: '16px',
+  borderBottom: '1px solid #ddd',
+});
+
+const StyledCardFooter = styled(CardActions)({
+  textAlign: 'center',
+  padding: '8px',
+  backgroundColor: '#f9f9f9',
+  fontSize: '0.85rem',
+  color: '#666',
+});
+
+const ChartContainer = styled('div')({
+  position: 'relative',
+  height: '320px',
+});
 
 const GenderRatio= () => {
   const data = {
@@ -22,25 +52,22 @@ const GenderRatio= () => {
     }]
   };
   return (
-    <div className="card shadow-sm col-4 ">
+    <StyledCard>
           {/* Card Header */}
-          <div className="card-header ">
-            <h5 className="card-title text-center">Gender Ratio</h5>
-          </div>
+          <StyledCardHeader
+            title={<Typography variant="h6">Average Working Years By Education Field</Typography>}
+          />
     
           {/* Card Body containing the Graph */}
-          <div className="card-body">
-          <div style={{ position: 'relative', height: '400px' }}>
-
-            <Doughnut data={data} />
-          </div>
-          </div>
+          <CardContent>
+            <ChartContainer>
+              <Doughnut data={data}  />
+            </ChartContainer>
+          </CardContent>
     
-          {/* Card Footer (optional) */}
-          <div className="card-footer text-muted">
-            Last updated 3 days ago
-          </div>
-      </div>
+          {/* Card Footer */}
+          <StyledCardFooter>Last updated 3 days ago</StyledCardFooter>
+        </StyledCard>
     );
     };
 

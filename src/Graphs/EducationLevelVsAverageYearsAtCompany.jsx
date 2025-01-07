@@ -1,6 +1,38 @@
 import React, { useEffect, useRef } from 'react';
 import { Line } from 'react-chartjs-2';
 import { Chart as ChartJS, CategoryScale, LinearScale, LineElement, Title, Tooltip, Legend, PointElement } from 'chart.js';
+import { Card, CardHeader, CardContent, CardActions, Typography } from '@mui/material';
+import { styled } from '@mui/system';
+
+// Registering the chart.js components needed
+ChartJS.register(CategoryScale, LinearScale, Title, Tooltip, Legend);
+
+// Styled components
+const StyledCard = styled(Card)({
+  maxWidth: 800,
+  margin: 'auto',
+  // boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)',
+  borderRadius: '8px',
+});
+
+const StyledCardHeader = styled(CardHeader)({
+  backgroundColor: '#f5f5f5',
+  padding: '16px',
+  borderBottom: '1px solid #ddd',
+});
+
+const StyledCardFooter = styled(CardActions)({
+  textAlign: 'center',
+  padding: '8px',
+  backgroundColor: '#f9f9f9',
+  fontSize: '0.85rem',
+  color: '#666',
+});
+
+const ChartContainer = styled('div')({
+  position: 'relative',
+  height: '320px',
+});
 
 // Registering the chart.js components needed
 ChartJS.register(CategoryScale, LinearScale, LineElement, Title, Tooltip, Legend, PointElement);
@@ -70,24 +102,22 @@ const EducationLevelVsAverageYearsAtCompany = () => {
     // }, []);
   
     return (
-      <div className="card shadow-sm col-12 col-md-6 col-lg-4">
-        {/* Card Header */}
-        <div className="card-header text-center">
-          <h5 className="card-title">Attrition Rate By Work-Life Balance</h5>
-        </div>
-  
-        {/* Card Body containing the Graph */}
-        <div className="card-body">
-          <div style={{ position: 'relative', height: '400px' }}>
-            <Line ref={chartRef} data={data} options={options} />
-          </div>
-        </div>
-  
-        {/* Card Footer (optional) */}
-        <div className="card-footer text-muted">
-          Last updated 3 days ago
-        </div>
-      </div>
+      <StyledCard>
+            {/* Card Header */}
+            <StyledCardHeader
+              title={<Typography variant="h6" align="center">Education Levels vs. Average Years At Company</Typography>}
+            />
+      
+            {/* Card Body containing the Graph */}
+            <CardContent>
+              <ChartContainer>
+                <Line data={data} options={options} />
+              </ChartContainer>
+            </CardContent>
+      
+            {/* Card Footer */}
+            <StyledCardFooter>Last updated 3 days ago</StyledCardFooter>
+          </StyledCard>
     );
   };
 
