@@ -25,9 +25,13 @@ const Greetings = () => {
     }
   }, []);
 
+ 
   return (
     <div
       style={{
+        display: 'flex',
+        flexWrap: 'wrap',
+        gap: '10px',
         padding: '20px',
         textAlign: 'center',
         fontSize: '1.5rem',
@@ -37,6 +41,11 @@ const Greetings = () => {
         minWidth: '1150px',
         margin: '0 auto', 
         marginBottom: '1rem', 
+        justifyContent: 'space-between', 
+        '@media (max-width: 768px)': {
+          flexDirection: 'column', 
+          alignItems: 'center',
+  },
       }}
     >
       {greeting}

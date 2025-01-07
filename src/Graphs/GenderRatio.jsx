@@ -1,7 +1,6 @@
 import React from 'react'
 import { Doughnut, Pie } from 'react-chartjs-2';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
-import '/media/masamune/HARD DISK/white_knight/Dashboard/dash-main/src/global/Graphs/graphs.css';
 // Register the chart.js components
 ChartJS.register(ArcElement, Tooltip, Legend);
 
