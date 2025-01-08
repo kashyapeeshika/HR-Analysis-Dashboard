@@ -1,9 +1,9 @@
+import React from 'react';
 import { Box, Stack } from '@mui/material';
-import React, { useRef } from 'react';
 import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 
-// Internal imports
+// Internal Imports
 import Navbar from "../global/Navbar";
 import Sidebar from "../global/Sidebar";
 import Greetings from "../global/Greetings";
@@ -12,8 +12,6 @@ import Notifications from '../global/Notifications';
 import TotalEmployees from "../Graphs/TotalEmployees";
 import NewHires from "../Graphs/NewHires";
 import AverageTenure from '../Graphs/AverageTenure';
-
-//Graphs
 import AttritionRateByDepartment from '../Graphs/AttritionRateByDepartment';
 import AverageSalaryByDepartment from '../Graphs/AverageSalaryByDepartment';
 
@@ -26,24 +24,10 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
   boxShadow: theme.shadows[3],
   borderRadius: theme.shape.borderRadius,
-  
 }));
-
-// Custom styles for card container
-const cardContainerStyles = {
-  display: 'flex',
-  flexWrap: 'wrap', 
-  gap: '10px', 
-  justifyContent: 'space-between', 
-  '@media (max-width: 768px)': {
-    flexDirection: 'column', 
-    alignItems: 'center',
-  },
-};
 
 const Home = () => {
   return (
-
     <Box
       sx={{
         display: 'flex',
@@ -69,35 +53,48 @@ const Home = () => {
             p: 3,
           }}
         >
-
-          {/* First row */}
-          <Stack 
-            direction={{ xs: 'column', sm: 'row' }}
-            spacing={{ xs: 1, sm: 2, md: 3 }}
-            cardContainerStyles
-            >
-              <Item >
-                <Greetings/>
-              </Item>
-              <Item>
-                <Notifications/>
-              </Item>
-            </Stack>
-
-          {/* Second Row of Cards */}
+          {/* First Row */}
           <Stack
             direction={{ xs: 'column', sm: 'row' }}
-            spacing={{ xs: 1, sm: 2, md: 3 }}
-            cardContainerStyles
+            spacing={2}
+            sx={{
+              mb: 2, 
+            }}
           >
             <Item>
-              <AttritionRateByDepartment/>
+              <Greetings />
             </Item>
             <Item>
-              <AverageSalaryByDepartment/>
+              <Notifications />
             </Item>
-            <Item>  
-            <Stack>
+          </Stack>
+
+          {/* Second Row */}
+          <Stack
+              direction={{ xs: 'column', sm: 'row' }}
+              spacing={2}
+              sx={{
+                '& > *': {
+                  flexGrow: 1, 
+                },
+              }}
+            >
+              <Item sx={{ height: '500px' }}> 
+                <AttritionRateByDepartment />
+              </Item>
+              <Item sx={{ height: '500px' }}> 
+                <AverageSalaryByDepartment />
+              </Item>
+            <Stack
+              direction="column"
+              spacing={2}
+              sx={{
+                width: '22%',  
+                position: 'relative',
+                alignContent: 'start',
+                justifyContent: 'right',
+              }}
+            >
               <Item>
                 <TotalEmployees />
               </Item>
@@ -108,7 +105,6 @@ const Home = () => {
                 <AverageTenure />
               </Item>
             </Stack>
-            </Item>
           </Stack>
         </Box>
       </Box>

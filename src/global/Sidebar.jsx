@@ -13,6 +13,7 @@ import Toolbar from "@mui/material/Toolbar";
 import HomeIcon from "@mui/icons-material/Home";
 import InfoIcon from "@mui/icons-material/Info";
 import ContactsIcon from "@mui/icons-material/Contacts";
+import AnalyticsIcon from '@mui/icons-material/Analytics';
 
 const drawerWidth = 310;
 
@@ -29,10 +30,11 @@ function ResponsiveDrawer(props) {
   // Menu items with icons
   const menuItems = [
     { text: "Dashboard", path: "/", icon: <HomeIcon /> },
-    { text: "About", path: "/screens/About", icon: <InfoIcon /> },
-    { text: "Contacts", path: "/screens/Contacts", icon: <ContactsIcon /> },
+    { text: "Graphs", path: "/Graphs", icon: <AnalyticsIcon /> },
+    { text: "About", path: "/About", icon: <InfoIcon /> },
+    { text: "Contacts", path: "/Contacts", icon: <ContactsIcon /> },
   ];
-
+  
   const drawer = (
     <div>
       <Toolbar
