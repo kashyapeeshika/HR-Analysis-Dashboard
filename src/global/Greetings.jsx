@@ -25,27 +25,30 @@ const Greetings = () => {
     }
   }, []);
 
- 
   return (
     <div
       style={{
+        backgroundImage: `./media/masamune/HARD DISK/white_knight/Dashboard/dashboard/public/assets/gradient.jpg`, 
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
         display: 'flex',
         flexWrap: 'wrap',
         gap: '10px',
         padding: '20px',
         textAlign: 'center',
         fontSize: '1.5rem',
-        color: '#508CA4',
-        width: '100%', 
-        maxWidth: '1250px', 
+        color: '#ffffff', 
+        width: '100%',
+        maxWidth: '1250px',
         minWidth: '1150px',
-        margin: '0 auto', 
-        marginBottom: '1rem', 
-        justifyContent: 'space-between', 
-        '@media (max-width: 768px)': {
-          flexDirection: 'column', 
-          alignItems: 'center',
-  },
+        margin: '0 auto',
+        marginBottom: '1rem',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        borderRadius: '8px', // Optional: Adds rounded corners
+        boxShadow: '0px 4px 15px rgba(0, 0, 0, 0.2)', // Optional: Adds shadow for better visibility
+        height: '250px', // Fixed height for the component
       }}
     >
       {greeting}
