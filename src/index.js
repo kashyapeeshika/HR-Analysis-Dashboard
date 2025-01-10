@@ -9,6 +9,7 @@ import Home from "./screens/Home";
 import About from "./screens/About";
 import Contacts from "./screens/Contacts";
 import Graphs from "./screens/Graphs";
+import Auth from "./screens/Auth";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -20,6 +21,7 @@ root.render(
         <Route path="/About" element={<About />} />
         <Route path="/Contacts" element={<Contacts />} />
         <Route path="/Graphs" element={<Graphs />} />
+        <Route path="/Auth" element={<Auth />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

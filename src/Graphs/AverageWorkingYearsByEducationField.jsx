@@ -37,7 +37,7 @@ const ChartContainer = styled('div')({
 
 // Data for the graph
 const ageGroupDistribution = {
-  labels: ['Marketing', 'Humarn Resources', 'Medical', 'Life Science', 'Others', 'Technical Degree'],
+  labels: ['Marketing', 'HR', 'Medical', 'Life Science', 'Others', 'Technical Degree'],
   datasets: [
     {
       label: 'Age Groups',

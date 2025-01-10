@@ -1,97 +1,53 @@
 import React from 'react';
+import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Typography } from '@mui/material';
 
 const OpenPosition = () => {
+  const positions = [
+    { id: 1, department: 'Data Science', position: 'Data Analyst', level: 'Mid-level', salary: '700k', openings: 3, experience: '2-4', location: 'Mumbai' },
+    { id: 2, department: 'Marketing', position: 'Marketing Manager', level: 'Senior', salary: '1,200k', openings: 2, experience: '5-7', location: 'Delhi' },
+    { id: 3, department: 'Sales', position: 'Sales Executive', level: 'Junior', salary: '500k', openings: 4, experience: '1-3', location: 'Hyderabad' },
+    { id: 4, department: 'Human Resources', position: 'HR Specialist', level: 'Entry Level', salary: '600k', openings: 1, experience: '2-3', location: 'Pune' },
+    { id: 5, department: 'Engineering', position: 'Product Manager', level: 'Senior', salary: '1,500k', openings: 2, experience: '5-8', location: 'Bengaluru' },
+    { id: 6, department: 'Finance', position: 'Business Analyst', level: 'Mid-level', salary: '900k', openings: 3, experience: '3-5', location: 'Chennai' },
+    { id: 7, department: 'Research & Development', position: 'Research Scientist', level: 'Senior', salary: '1,000k', openings: 2, experience: '4-6', location: 'Pune' },
+  ];
+
   return (
-    <div className="row">
-      <div className="table-responsive">
-        <table className="table table-striped table-info table-hover">
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">Department</th>
-              <th scope="col">Open Position</th>
-              <th scope="col">Position Level</th>
-              <th scope="col">Salary</th>
-              <th scope="col">No. of Openings</th>
-              <th scope="col">Required Experience (Years)</th>
-              <th scope="col">Location</th>
-            </tr>
-          </thead>
-          <tbody >
-            <tr>
-              <th scope="row">1</th>
-              <td>Data Science</td>
-              <td>Data Analyst</td>
-              <td>Mid-level</td>
-              <td>700k</td>
-              <td>3</td>
-              <td>2-4</td>
-              <td>Mumbai</td>
-            </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>Marketing</td>
-              <td>Marketing Manager</td>
-              <td>Senior</td>
-              <td>1,200k</td>
-              <td>2</td>
-              <td>5-7</td>
-              <td>Delhi</td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td>Sales</td>
-              <td>Sales Executive</td>
-              <td>Junior</td>
-              <td>500k</td>
-              <td>4</td>
-              <td>1-3</td>
-              <td>Hyderabad</td>
-            </tr>
-            <tr>
-              <th scope="row">4</th>
-              <td>Human Resources</td>
-              <td>HR Specialist</td>
-              <td>Entry Level</td>
-              <td>600k</td>
-              <td>1</td>
-              <td>2-3</td>
-              <td>Pune</td>
-            </tr>
-            <tr>
-              <th scope="row">5</th>
-              <td>Engineering</td>
-              <td>Product Manager</td>
-              <td>Senior</td>
-              <td>1,500k</td>
-              <td>2</td>
-              <td>5-8</td>
-              <td>Bengaluru</td>
-            </tr>
-            <tr>
-              <th scope="row">6</th>
-              <td>Finance</td>
-              <td>Business Analyst</td>
-              <td>Mid-level</td>
-              <td>900k</td>
-              <td>3</td>
-              <td>3-5</td>
-              <td>Chennai</td>
-            </tr>
-            <tr>
-              <th scope="row">7</th>
-              <td>Research & Development</td>
-              <td>Research Scientist</td>
-              <td>Senior</td>
-              <td>1,000k</td>
-              <td>2</td>
-              <td>4-6</td>
-              <td>Pune</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
+    <Paper elevation={3} sx={{ padding: '20px', width: '100%' }}>
+      <Typography variant="h6" sx={{ marginBottom: '20px', textAlign: 'center', fontWeight: 'bold' }}>
+        Open Positions
+      </Typography>
+      <TableContainer component={Paper}>
+        <Table>
+          <TableHead>
+            <TableRow>
+              <TableCell>#</TableCell>
+              <TableCell>Department</TableCell>
+              <TableCell>Open Position</TableCell>
+              <TableCell>Position Level</TableCell>
+              <TableCell>Salary</TableCell>
+              <TableCell>No. of Openings</TableCell>
+              <TableCell>Required Experience (Years)</TableCell>
+              <TableCell>Location</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {positions.map((pos) => (
+              <TableRow key={pos.id} hover>
+                <TableCell>{pos.id}</TableCell>
+                <TableCell>{pos.department}</TableCell>
+                <TableCell>{pos.position}</TableCell>
+                <TableCell>{pos.level}</TableCell>
+                <TableCell>{pos.salary}</TableCell>
+                <TableCell>{pos.openings}</TableCell>
+                <TableCell>{pos.experience}</TableCell>
+                <TableCell>{pos.location}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+    </Paper>
   );
 };
 

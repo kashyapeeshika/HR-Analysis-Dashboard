@@ -99,15 +99,31 @@ const Graphs = () => {
         </Grid>
 
         {/* Open Positions and Training Hours */}
-        <Grid item xs={12} sm={6} md={4}>
-          <Paper elevation={3} sx={{ padding: "10px", height: "100%" }}>
+        <Grid item xs={12}>
+          <Paper 
+            elevation={3} 
+            sx={{ 
+              display: "flex", 
+              flexDirection: "row", 
+            }}
+          >
             <OpenPosition />
           </Paper>
         </Grid>
-      </Grid>
 
-      {/* Training Hours */}
-      
+        {/* Training Hours */}
+        <Grid item xs={12}>
+          <Paper 
+            elevation={3} 
+            sx={{ 
+              display: "flex", 
+              flexDirection: "row", 
+            }}
+          >
+            <TrainingHours/>
+          </Paper>
+        </Grid>
+      </Grid>
     </Box>
   );
 };

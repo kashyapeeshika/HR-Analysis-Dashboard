@@ -41,11 +41,11 @@ const EducationLevelVsAverageYearsAtCompany = () => {
   const chartRef = useRef(null);
   
     const labels = [
-      "High School/Some College",
-      "Associate's Degree",
-      "Bachclor's Degree",
-      "Master's Degree",
-      'Doctoral Degree', 
+      "High School",
+      "Associate",
+      "Bachclor",
+      "Master",
+      'Doctoral', 
     ];
   
     const data = {

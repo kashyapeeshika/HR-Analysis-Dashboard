@@ -36,7 +36,7 @@ const ChartContainer = styled('div')({
 });
 
 const AttritionRateByDepartment = () => {
-  const labels = ['Research & Development', 'Sales', 'Human Resources'];
+  const labels = ['R&D', 'Sales', 'HR'];
 
   const data = {
     labels: labels,

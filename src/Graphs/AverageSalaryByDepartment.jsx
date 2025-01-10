@@ -36,7 +36,7 @@ const ChartContainer = styled('div')({
 });
 
 const AverageSalaryByDepartment = () => {
-  const labels = ['Sales', 'Human Resources', 'Research & Development'];
+  const labels = ['Sales', 'HR', 'R&D'];
 
   const data = {
     labels: labels,

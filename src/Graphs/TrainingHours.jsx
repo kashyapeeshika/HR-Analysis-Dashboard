@@ -1,4 +1,16 @@
 import React, { useState } from "react";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Paper,
+  Typography,
+  Button,
+  Box,
+} from "@mui/material";
 
 // Sample data for 1,480 employees
 const employeeData = Array.from({ length: 1480 }, (_, i) => ({
@@ -29,62 +41,66 @@ const TrainingHours = () => {
   };
 
   return (
-    <div className="row col-lg-6">
-      <div>
-        <table className="table table-striped table-info table-hover">
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">Name</th>
-              <th scope="col">Department</th>
-              <th scope="col">Position Level</th>
-              <th scope="col">Average Training Hours (Per Year)</th>
-              <th scope="col">Minimum Training Hours</th>
-              <th scope="col">Maximum Training Hours</th>
-              <th scope="col">Training Completed</th>
-              <th scope="col">Training Left</th>
-            </tr>
-          </thead>
-          <tbody>
+    <Paper elevation={3} sx={{ padding: "20px", width: "100%" }}>
+      <Typography variant="h6" sx={{ marginBottom: "20px", textAlign: "center", fontWeight: "bold" }}>
+        Training Hours Summary
+      </Typography>
+      <TableContainer component={Paper}>
+        <Table>
+          <TableHead>
+            <TableRow>
+              <TableCell>#</TableCell>
+              <TableCell>Name</TableCell>
+              <TableCell>Department</TableCell>
+              <TableCell>Position Level</TableCell>
+              <TableCell>Avg. Training Hours (Year)</TableCell>
+              <TableCell>Min Training Hours</TableCell>
+              <TableCell>Max Training Hours</TableCell>
+              <TableCell>Training Completed</TableCell>
+              <TableCell>Training Left</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
             {currentEmployees.map((employee) => (
-              <tr key={employee.id}>
-                <th scope="row">{employee.id}</th>
-                <td>{employee.name}</td>
-                <td>{employee.department}</td>
-                <td>{employee.positionLevel}</td>
-                <td>{employee.avgTrainingHours}</td>
-                <td>{employee.minTrainingHours}</td>
-                <td>{employee.maxTrainingHours}</td>
-                <td>{employee.trainingCompleted}</td>
-                <td>
-                  {employee.maxTrainingHours - employee.trainingCompleted}
-                </td>
-              </tr>
+              <TableRow key={employee.id} hover>
+                <TableCell>{employee.id}</TableCell>
+                <TableCell>{employee.name}</TableCell>
+                <TableCell>{employee.department}</TableCell>
+                <TableCell>{employee.positionLevel}</TableCell>
+                <TableCell>{employee.avgTrainingHours}</TableCell>
+                <TableCell>{employee.minTrainingHours}</TableCell>
+                <TableCell>{employee.maxTrainingHours}</TableCell>
+                <TableCell>{employee.trainingCompleted}</TableCell>
+                <TableCell>{employee.maxTrainingHours - employee.trainingCompleted}</TableCell>
+              </TableRow>
             ))}
-          </tbody>
-        </table>
-      </div>
+          </TableBody>
+        </Table>
+      </TableContainer>
+
       {/* Pagination Controls */}
-      <div className="d-flex justify-content-between align-items-center mt-3">
-        <button
-          className="btn btn-secondary"
+      <Box display="flex" justifyContent="space-between" alignItems="center" mt={3}>
+        <Button
+          variant="contained"
+          color="primary"
           disabled={currentPage === 1}
           onClick={() => handlePageChange(currentPage - 1)}
         >
           Previous
-        </button>
-        <span>
+        </Button>
+        <Typography>
           Page {currentPage} of {totalPages}
-        </span>
-        <button
-          className="btn btn-secondary"
+        </Typography>
+        <Button
+          variant="contained"
+          color="primary"
           disabled={currentPage === totalPages}
           onClick={() => handlePageChange(currentPage + 1)}
         >
           Next
-        </button>
-      </div>
-    </div>
+        </Button>
+      </Box>
+    </Paper>
   );
 };
 

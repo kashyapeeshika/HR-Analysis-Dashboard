@@ -20,7 +20,9 @@ const Footer = () => {
         bottom: 0,
         mt: "auto",
         boxShadow: "none", 
-        borderTop: `1px solid ${borderColor}`,
+        cursor: 'pointer',
+        height: 50,
+        padding: 0,
       }}
     >
       <Toolbar>

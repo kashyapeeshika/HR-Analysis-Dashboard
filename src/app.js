@@ -7,6 +7,7 @@ import Home from "./screens/";
 import About from "./screens/About";
 import Contacts from "./screens/Contacts";
 import Graphs from "./screens/Graphs";
+import Auth from "./screens/Auth";
 
 function App() {
   const [theme, colorMode] = useMode();
@@ -22,6 +23,7 @@ function App() {
             <Route path="/About" element={<About />} />
             <Route path="/Contacts" element={<Contacts />} />
             <Route path="/Graphs" element={<Graphs />} />
+            <Route path="/Auth" element={<Auth/>} />
           </Routes>
         </Router>
       </ThemeProvider>

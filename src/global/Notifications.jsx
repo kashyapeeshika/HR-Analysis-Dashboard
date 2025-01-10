@@ -27,9 +27,7 @@ const Notifications = () => {
       style={{ 
         padding: '20px', 
         maxWidth: '400px', 
-        // border: '1px solid #ddd', 
         borderRadius: '8px', 
-        // boxShadow: '0 4px 6px rgba(0,0,0,0.1)' 
       }}
     >
       <h3 style={{ 

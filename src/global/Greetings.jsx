@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import { useTheme } from '@mui/material/styles'; // Import useTheme hook
+import { Box } from '@mui/material'; // Using Box for layout and styling
 
 const Greetings = () => {
   const [greeting, setGreeting] = useState('');
+  const theme = useTheme(); // Get the current theme
 
   useEffect(() => {
     // Check if it's the user's first visit
@@ -18,6 +21,9 @@ const Greetings = () => {
         'Welcome back! Let’s dive into your dashboard.',
         'Good to see you again! Ready to explore?',
         'Hello again! How can we assist you today?',
+        'Welcome back! Let’s get started with your dashboard.',
+        'Good to see you again! Ready to take on your next task?',
+        'Hey there, welcome back! Let’s check out what’s new in your dashboard.',
       ];
       // Choose a random greeting
       const randomGreeting = regularGreetings[Math.floor(Math.random() * regularGreetings.length)];
@@ -26,33 +32,22 @@ const Greetings = () => {
   }, []);
 
   return (
-    <div
-      style={{
-        backgroundImage: `./media/masamune/HARD DISK/white_knight/Dashboard/dashboard/public/assets/gradient.jpg`, 
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundRepeat: 'no-repeat',
+    <Box
+      sx={{
         display: 'flex',
-        flexWrap: 'wrap',
-        gap: '10px',
-        padding: '20px',
-        textAlign: 'center',
-        fontSize: '1.5rem',
-        color: '#ffffff', 
-        width: '100%',
-        maxWidth: '1250px',
-        minWidth: '1150px',
-        margin: '0 auto',
-        marginBottom: '1rem',
-        justifyContent: 'space-between',
         alignItems: 'center',
-        borderRadius: '8px', // Optional: Adds rounded corners
-        boxShadow: '0px 4px 15px rgba(0, 0, 0, 0.2)', // Optional: Adds shadow for better visibility
-        height: '250px', // Fixed height for the component
+        justifyContent: 'center',
+        height: '100%',
+        fontSize: '1.5rem',
+        padding: '1rem',
+        color: theme.palette.text.primary, 
+        fontWeight: 'bold',
+        textAlign: 'center',
+        backgroundImage: `linear-gradient(120deg, ${theme.palette.background.default} 0%, ${theme.palette.primary.main} 100%)`,
       }}
     >
       {greeting}
-    </div>
+    </Box>
   );
 };
 
