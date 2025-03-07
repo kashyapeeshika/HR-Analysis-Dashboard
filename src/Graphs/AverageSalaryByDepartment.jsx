@@ -10,22 +10,15 @@ ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
 // Styled components
 const StyledCard = styled(Card)({
   maxWidth: '700px',
-  margin: '20px auto',
-  borderRadius: '12px',
-  boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)',
 });
 
 const StyledCardHeader = styled(CardHeader)({
-  backgroundColor: '#f5f5f5',
   color: '#000',
   textAlign: 'center',
-  padding: '16px',
 });
 
 const StyledCardFooter = styled(CardActions)({
   textAlign: 'center',
-  padding: '8px',
-  backgroundColor: '#f9f9f9',
   fontSize: '0.85rem',
   color: '#666',
 });

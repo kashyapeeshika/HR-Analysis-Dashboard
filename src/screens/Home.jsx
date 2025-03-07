@@ -17,13 +17,7 @@ import AverageSalaryByDepartment from '../Graphs/AverageSalaryByDepartment';
 
 // Styled Item for Cards
 const Item = styled(Paper)(({ theme }) => ({
-  // backgroundColor: '#fff',
-  // ...theme.typography.body2,
-  // padding: theme.spacing(2),
   textAlign: 'center',
-  // color: theme.palette.text.secondary,
-  // boxShadow: theme.shadows[3],
-  // borderRadius: theme.shape.borderRadius,
 }));
 
 const Home = () => {
@@ -58,7 +52,7 @@ const Home = () => {
             direction={{ xs: 'column', sm: 'row' }}
             spacing={1}
             sx={{
-              mb: 1, 
+              mb: 6, 
             }}
           >
             <Item sx={{ height: '300px', 
@@ -84,15 +78,15 @@ const Home = () => {
               },
             }}
           >
-            <Item sx={{ height: '500px' }}> 
+            <Item sx={{ height: '450px' }}> 
               <AttritionRateByDepartment />
             </Item>
-            <Item sx={{ height: '500px' }}> 
+            <Item sx={{ height: '450px' }}> 
               <AverageSalaryByDepartment />
             </Item>
             <Stack
               direction="column"
-              spacing={2}
+              spacing={9}
               sx={{
                 width: '22%',  
                 position: 'relative',

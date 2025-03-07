@@ -13,7 +13,7 @@ import Toolbar from "@mui/material/Toolbar";
 import HomeIcon from "@mui/icons-material/Home";
 import InfoIcon from "@mui/icons-material/Info";
 import ContactsIcon from "@mui/icons-material/Contacts";
-import AnalyticsIcon from '@mui/icons-material/Analytics';
+import AnalyticsIcon from "@mui/icons-material/Analytics";
 
 const drawerWidth = 310;
 
@@ -27,25 +27,16 @@ function ResponsiveDrawer(props) {
     setMobileOpen(!mobileOpen);
   };
 
-  // Menu items with icons
   const menuItems = [
     { text: "Dashboard", path: "/", icon: <HomeIcon /> },
     { text: "Graphs", path: "/Graphs", icon: <AnalyticsIcon /> },
     { text: "About", path: "/About", icon: <InfoIcon /> },
     { text: "Contacts", path: "/Contacts", icon: <ContactsIcon /> },
   ];
-  
+
   const drawer = (
     <div>
-      <Toolbar
-        style={{
-          position: "relative",
-          width: "100%",
-          height: "100px",
-        }}
-      >
-        {/* Add your logo or branding here if needed */}
-      </Toolbar>
+      <Toolbar style={{ position: "relative", width: "100%", height: "100px" }} />
       <List>
         {menuItems.map((item) => (
           <ListItem key={item.text}>
@@ -59,25 +50,18 @@ function ResponsiveDrawer(props) {
     </div>
   );
 
-  const container =
-    window !== undefined ? () => window().document.body : undefined;
+  const container = window !== undefined ? () => window().document.body : undefined;
 
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
-      <Box
-        component="nav"
-        sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}
-        aria-label="mailbox folders"
-      >
+      <Box component="nav" sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}>
         <Drawer
           container={container}
           variant="temporary"
           open={mobileOpen}
           onClose={handleDrawerToggle}
-          ModalProps={{
-            keepMounted: true,
-          }}
+          ModalProps={{ keepMounted: true }}
           sx={{
             display: { xs: "block", sm: "none" },
             "& .MuiDrawer-paper": { boxSizing: "border-box", width: drawerWidth },
