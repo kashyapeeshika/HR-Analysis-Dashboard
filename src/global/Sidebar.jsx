@@ -87,7 +87,7 @@ export default function NavbarSidebar() {
           </ListItem>
         ))}
       </List>
-      <Divider />
+
     </div>
   );
 

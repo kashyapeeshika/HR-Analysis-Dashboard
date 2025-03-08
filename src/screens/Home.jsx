@@ -83,7 +83,7 @@ const Home = () => {
             </Item>
             <Stack
               direction="column"
-              spacing={9}
+              spacing={4}
               sx={{
                 width: '22%',  
                 position: 'relative',

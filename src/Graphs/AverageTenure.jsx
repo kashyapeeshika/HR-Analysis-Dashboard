@@ -15,6 +15,11 @@ const AverageTenure = () => {
         <h5 className="card-title">Average Tenure</h5>
         <p className="card-text fs-2 fw-bold">80152</p>
       </div>
+      <div className="card-footer bg-transparent border-0">
+        <button className="btn btn-primary" onClick={handleClick}>
+          Average Tenure
+        </button>
+      </div>
     </div>
   );
 };
