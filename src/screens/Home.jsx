@@ -4,7 +4,6 @@ import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 
 // Internal Imports
-import Navbar from "../global/Navbar";
 import Sidebar from "../global/Sidebar";
 import Greetings from '../global/Greetings';
 import Footer from "../global/Footer";
@@ -29,8 +28,6 @@ const Home = () => {
         minHeight: '100vh',
       }}
     >
-      {/* Navbar */}
-      <Navbar />
 
       {/* Main Content Area */}
       <Box
