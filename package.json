@@ -1,4 +1,4 @@
-{ "homepage": "https://kashyapeeshika.github.io/HR-Analysis-Dashboard",
+{ 
   "name": "dashboard",
   "version": "0.1.0",
   "private": true,
@@ -21,8 +21,6 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -b main -d build",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -44,8 +42,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "gh-pages": "^6.3.0"
   }
 }
