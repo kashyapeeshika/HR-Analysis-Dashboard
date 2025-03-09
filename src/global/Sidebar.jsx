@@ -1,5 +1,6 @@
 import * as React from "react";
 import { styled, alpha } from "@mui/material/styles";
+import { Link } from "react-router-dom";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -19,7 +20,6 @@ import PersonIcon from "@mui/icons-material/Person";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import InboxIcon from "@mui/icons-material/MoveToInbox";
 import MailIcon from "@mui/icons-material/Mail";
-import { Link } from "react-router-dom";
 
 const drawerWidth = 240;
 
@@ -64,21 +64,21 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-export default function NavbarSidebar() {
-  const [mobileOpen, setMobileOpen] = React.useState(false);
-
-  const handleDrawerToggle = () => {
-    setMobileOpen((prev) => !prev);
-  };
+const Sidebar = ({ mobileOpen, handleDrawerToggle }) => {
+  const menuItems = [
+    { text: "Dashboard", path: "/" },
+    { text: "Graphs", path: "/Graphs" },
+    { text: "About", path: "/about" },
+  ];
 
   const drawer = (
     <div>
       <Toolbar />
       <Divider />
       <List>
-        {["Dashboard", "Graphs", "About"].map((text, index) => (
+        {menuItems.map(({ text, path }, index) => (
           <ListItem key={text} disablePadding>
-            <ListItemButton>
+            <ListItemButton component={Link} to={path}>
               <ListItemIcon>
                 {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
               </ListItemIcon>
@@ -87,9 +87,42 @@ export default function NavbarSidebar() {
           </ListItem>
         ))}
       </List>
-
     </div>
   );
+
+  return (
+    <Box component="nav" sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}>
+      <Drawer
+        variant="temporary"
+        open={mobileOpen}
+        onClose={handleDrawerToggle}
+        sx={{
+          display: { xs: "block", sm: "none" },
+          "& .MuiDrawer-paper": { boxSizing: "border-box", width: drawerWidth },
+        }}
+      >
+        {drawer}
+      </Drawer>
+      <Drawer
+        variant="permanent"
+        sx={{
+          display: { xs: "none", sm: "block" },
+          "& .MuiDrawer-paper": { boxSizing: "border-box", width: drawerWidth },
+        }}
+        open
+      >
+        {drawer}
+      </Drawer>
+    </Box>
+  );
+};
+
+export default function NavbarSidebar() {
+  const [mobileOpen, setMobileOpen] = React.useState(false);
+
+  const handleDrawerToggle = () => {
+    setMobileOpen((prev) => !prev);
+  };
 
   return (
     <Box sx={{ display: "flex" }}>
@@ -112,16 +145,12 @@ export default function NavbarSidebar() {
           >
             <MenuIcon />
           </IconButton>
-
-          {/* Search Bar */}
           <Search sx={{ border: "solid 1px #707070" }}>
             <SearchIconWrapper>
               <SearchIcon />
             </SearchIconWrapper>
             <StyledInputBase placeholder="Search…" inputProps={{ "aria-label": "search" }} />
           </Search>
-
-          {/* Icons */}
           <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
             <IconButton color="inherit">
               <Link to="/auth" style={{ color: "inherit", textDecoration: "none" }}>
@@ -134,29 +163,7 @@ export default function NavbarSidebar() {
           </Box>
         </Toolbar>
       </AppBar>
-      <Box component="nav" sx={{ width: { sm: drawerWidth }, flexShrink: { sm: 0 } }}>
-        <Drawer
-          variant="temporary"
-          open={mobileOpen}
-          onClose={handleDrawerToggle}
-          sx={{
-            display: { xs: "block", sm: "none" },
-            "& .MuiDrawer-paper": { boxSizing: "border-box", width: drawerWidth },
-          }}
-        >
-          {drawer}
-        </Drawer>
-        <Drawer
-          variant="permanent"
-          sx={{
-            display: { xs: "none", sm: "block" },
-            "& .MuiDrawer-paper": { boxSizing: "border-box", width: drawerWidth },
-          }}
-          open
-        >
-          {drawer}
-        </Drawer>
-      </Box>
+      <Sidebar mobileOpen={mobileOpen} handleDrawerToggle={handleDrawerToggle} />
       <Box component="main" sx={{ flexGrow: 1, p: 3, width: { sm: `calc(100% - ${drawerWidth}px)` } }}>
         <Toolbar />
       </Box>

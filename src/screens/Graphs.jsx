@@ -18,6 +18,7 @@ import SatisfactionLevelsComparison from "../Graphs/SatisfactionLevelsComparison
 import OpenPosition from "../Graphs/OpenPosition";
 import TrainingHours from "../Graphs/TrainingHours";
 
+// Styled Paper component
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: "#fff",
   padding: theme.spacing(2),
@@ -25,38 +26,68 @@ const Item = styled(Paper)(({ theme }) => ({
   color: theme.palette.text.secondary,
   borderRadius: "8px",
   boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.1)",
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  height: "100%", // Ensures uniform height
 }));
+
+const drawerWidth = 240;
 
 export default function Graphs() {
   return (
-    <Box sx={{ flexGrow: 1, padding: 3 }}>
+    <Box
+      sx={{
+        flexGrow: 1,
+        padding: 3,
+        width: { sm: `calc(100% - ${drawerWidth}px)` },
+        marginLeft: `${drawerWidth}px`, // Adjust for sidebar
+      }}
+    >
       {/* Page Header */}
-      <Typography
-        variant="h4"
-        component="h1"
-        sx={{ textAlign: "center", marginBottom: 3, color: "#508CA4" }}
-      >
-        Dashboard Graphs Overview
-      </Typography>
+      <Box sx={{ width: "100%", textAlign: "center", marginBottom: 3 }}>
+        <Typography
+          variant="h4"
+          component="h1"
+          sx={{
+            textAlign: "center",
+            color: "#508CA4",
+            fontWeight: "bold",
+          }}
+        >
+          Dashboard Graphs Overview
+        </Typography>
+      </Box>
 
-      <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
-        {[AgeGroupDistribution, AttritionByGender, AverageSalaryByDepartment, AverageWorkingYearsByEducationField, BusinessTravelAnalysis, DistanceFromHomeVsAttrition, EducationLevelVsAverageYearsAtCompany, GenderRatio, SatisfactionLevelsComparison].map((Component, index) => (
-          <Grid item xs={4} sm={4} md={4} key={index}>
+      {/* Grid for Graphs */}
+      <Grid container spacing={3}>
+        {[
+          AgeGroupDistribution,
+          AttritionByGender,
+          AverageSalaryByDepartment,
+          AverageWorkingYearsByEducationField,
+          BusinessTravelAnalysis,
+          DistanceFromHomeVsAttrition,
+          EducationLevelVsAverageYearsAtCompany,
+          GenderRatio,
+          SatisfactionLevelsComparison,
+        ].map((Component, index) => (
+          <Grid item xs={12} sm={6} md={4} key={index}>
             <Item>
               <Component />
             </Item>
           </Grid>
         ))}
 
-        {/* Open Positions and Training Hours */}
+        {/* Last Two Graphs (Full Width) */}
         <Grid item xs={12}>
-          <Item sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+          <Item>
             <OpenPosition />
           </Item>
         </Grid>
 
         <Grid item xs={12}>
-          <Item sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
+          <Item>
             <TrainingHours />
           </Item>
         </Grid>
