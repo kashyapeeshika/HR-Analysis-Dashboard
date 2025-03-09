@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/HR-Analysis-Dashboard/static/css/main.e6c13ad2.css",
+    "main.js": "/HR-Analysis-Dashboard/static/js/main.738c634c.js",
+    "static/js/488.5abc565a.chunk.js": "/HR-Analysis-Dashboard/static/js/488.5abc565a.chunk.js",
+    "index.html": "/HR-Analysis-Dashboard/index.html",
+    "main.e6c13ad2.css.map": "/HR-Analysis-Dashboard/static/css/main.e6c13ad2.css.map",
+    "main.738c634c.js.map": "/HR-Analysis-Dashboard/static/js/main.738c634c.js.map",
+    "488.5abc565a.chunk.js.map": "/HR-Analysis-Dashboard/static/js/488.5abc565a.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.738c634c.js"
+  ]
+}
